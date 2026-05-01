@@ -2,6 +2,7 @@
 #include <stack>
 #include <algorithm>
 #include <vector>
+#include <iostream>
 
 using namespace std;
 
@@ -33,6 +34,8 @@ vector<long long> maxStrengthForAllSizes(const vector<long long>& heights) {
     vector<long long> ans(n + 1, 0);
     for (int i = 0; i < n; i++) {
         int len = right[i] - left[i] - 1;
+        std::cout << "a[" << i <<"] = " << heights[i] << ", rango maximo = " << len << std::endl;
+
         ans[len] = max(ans[len], heights[i]);
     }
     

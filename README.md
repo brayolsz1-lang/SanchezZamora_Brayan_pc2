@@ -1,53 +1,56 @@
-# PC2 - Mike and Feet (Codeforces 547B)
+## PC2 - CC232
 
-## Estudiante
-Brayan Sanchez Zamora 20235010K
+### Estudiante
+- Nombre: Brayan Sanchez Zamora
+- Código: 20235010K
+- Problema asignado: Codeforces 547B - Mike and Feet
+- Enlace: https://codeforces.com/problemset/problem/547/B
 
-## Problema
-https://codeforces.com/problemset/problem/547/B
+### Referencia oficial
+- Archivo de asignación:
+  https://github.com/kapumota/CC-232/blob/main/Practicas/Practica2_CC232/Problemas-Evaluacion2.csv
 
-## Estructura de datos
-- vector para alturas y resultados
-- stack (pila) para nearest smaller elements
+### Tema principal
+- Semana: 3
+- Estructura o técnica principal: Stack (pila) y vector (arreglo dinámico)
 
-## Algoritmo
-1. Calcular nearest smaller to left y right con stack
-2. Para cada i: tamaño = right[i] - left[i] - 1
-3. Actualizar mejor respuesta para ese tamaño
-4. Propagar máximos hacia atrás
+### Resumen de la solución
+Se calcula para cada elemento el rango máximo donde es el mínimo usando nearest smaller to left/right con una pila. Luego se propaga la respuesta hacia atrás para obtener la fuerza máxima para cada tamaño de grupo.
 
-## Complejidad
+### Complejidad
 - Tiempo: O(n)
 - Espacio: O(n)
 
-## Invariante
-La pila mantiene índices con alturas crecientes (de abajo hacia arriba)
+### Invariante o idea clave
+La pila mantiene índices con alturas crecientes. Esto permite encontrar en O(1) el elemento menor más cercano.
 
-## Compilación y ejecución
+### Archivos relevantes
+- include/mike_feet.h
+- src/mike_feet.cpp
+- src/main.cpp
+- tests/test.cpp
+- demos/demo_creciente.cpp
+
+
+### Compilación
+```bash
 g++ -std=c++17 -I include -o programa src/main.cpp src/mike_feet.cpp
+```
+
+### Ejecucion
 ./programa
 
-## Resultado del ejemplo
-Entrada:
-10
-1 2 3 4 5 4 3 2 1 6
 
-Salida:
-6 4 4 3 3 2 2 1 1 1
+### Casos de prueba
+Describe al menos 3 casos:
+1. n=1, entrada [42] , salida [42]
+2. todos iguales [5,5,5,5] → salida [5,5,5,5]
+3. ejemplo del problema → salida [6,4,4,3,3,2,2,1,1,1]
 
-## Experimentos
 
-### Sin optimización
-g++ -std=c++17 -I include -o programa0 src/main.cpp src/mike_feet.cpp
-Measure-Command { ./programa0 }
+### Historial de commits
+Indica que el historial debe verse en el video.
 
-Tiempo real: 0.0235771 segundos
 
-### Con optimización -O2
-g++ -std=c++17 -O2 -I include -o programa2 src/main.cpp src/mike_feet.cpp
-Measure-Command { ./programa2 }
-
-Tiempo real: 0.0369834 segundos
-
-## Declaración de autoría
-Declaro que entiendo el código, puedo explicarlo, compilarlo, ejecutarlo y modificarlo.
+### Declaración de autoría
+Declaro que entiendo el código entregado, que puedo explicarlo, compilarlo, ejecutarlo y modificarlo sin ayuda externa durante la grabación.
